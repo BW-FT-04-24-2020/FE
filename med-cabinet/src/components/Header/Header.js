@@ -11,7 +11,7 @@ export default function Header() {
             {/* Links to different parts of the website on the navigation. */}
             <ul>
                 <li>
-                    <Link to="/">
+                    <Link to="/home">
                         <h2>MedCabinet</h2>
                     </Link>
                 </li>

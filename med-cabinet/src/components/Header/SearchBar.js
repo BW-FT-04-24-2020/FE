@@ -37,6 +37,7 @@ const SearchBar = () => {
                     name="searchBar"
                     value={search.searchString}
                     onChange={handleChanges}
+                    placeholder="Search Strains, Effects, or Ailments"
                 />
             </form>
             <button>Search</button>
