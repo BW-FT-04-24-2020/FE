@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import { useHistory} from "react-router-dom"
+import { authenticAxios } from '../utils/authenticAxios';
 
 const SignUp = () => {
     const [user, setUser] = useState({
@@ -7,6 +8,7 @@ const SignUp = () => {
         email: '',
         password: '',
     })
+    const { push } = useHistory();
 
     const handleChange = event => {
         setUser({
@@ -15,10 +17,24 @@ const SignUp = () => {
           [event.target.name]: event.target.value
     
         })
+    }
+
+    const handleSignUp = event => {
+        event.preventDefault();
+        authenticAxios()
+          .post('/', user)
+          .then(res => {
+            console.log(res)
+            push('/')
+            push('/')
+          })
+          .catch(err => console.log('Login Error:', err))
+      }
+
     return (
         <div>
             <h1>MedCabinet</h1>
-            <form>
+            <form onSubmit={handleSignUp}>
                 <label htmlFor='name' name='name' >Name*</label>
                 <input
                     type='text'
@@ -44,10 +60,10 @@ const SignUp = () => {
                     onChange={handleChange}
                 />
                 <br/>
-                <button>Submit</button>
+                <button onClick= {() => push('/')}>Submit</button>
             </form>
         </div>
     )
 }
-}
+
 export default SignUp

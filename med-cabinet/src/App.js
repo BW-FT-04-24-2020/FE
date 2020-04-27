@@ -1,23 +1,23 @@
 import React from 'react';
 import './App.css';
 
-import { BrowserRouter as Route, Router } from 'react-router-dom';
-
-import {Header} from './components/Header/Header'
+import {BrowserRouter as Route, Switch} from 'react-router-dom'
 import Login from './components/Login'
+import SignUp from './components/SignUp';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
+    <Switch>
+      <Route exact path= "/">
+        <Login/>
+      </Route>
 
-        <Route path="/" component={Login} />
-        <Route component={Login} />
-
-
-      </div>
-    </Router>
+      <Route exact path= "/signup">
+        <SignUp/>
+      </Route>
+    </Switch>
+      
+    
 
   );
 }
