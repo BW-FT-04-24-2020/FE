@@ -35,7 +35,7 @@ const SearchBar = () => {
                 <input
                     type="text"
                     name="searchBar"
-                    value={search}
+                    value={search.searchString}
                     onChange={handleChanges}
                 />
             </form>
