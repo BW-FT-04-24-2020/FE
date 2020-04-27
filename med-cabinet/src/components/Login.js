@@ -7,7 +7,7 @@ const Login = () => {
         email: '',
         password: '',
     })
-    
+
     const handleChange = event => {
         setUser({
     
@@ -16,7 +16,7 @@ const Login = () => {
     
         })
     return (
-        <>
+        <div>
             <h1>MedCabinet</h1>
             <form>
                 <label htmlFor='name' name='name' >Name*</label>
@@ -24,6 +24,7 @@ const Login = () => {
                     type='text'
                     name='name'
                     value={user.name}
+                    onChange={handleChange}
                 />
                 <br />
                 <label htmlFor='email' name='email' >email*</label>
@@ -31,6 +32,7 @@ const Login = () => {
                     type='text'
                     name='email'
                     value={user.email}
+                    onChange={handleChange}
                 />
                 <br/>
                 <label htmlFor='password' name='password' >Password*</label>
@@ -39,10 +41,13 @@ const Login = () => {
                     type='password'
                     name='password'
                     value={user.password}
+                    onChange={handleChange}
                 />
                 <br/>
+                <button>Login</button>
             </form>
-        </>
+        </div>
     )
+}
 }
 export default Login

@@ -5,14 +5,14 @@ const initialState = [
     {
     id: '',
     race: '',
-    flavors: [''],
+    flavors: [''], /*made arrays for flavors and effects becasue they both have additional data */
     effects: ['']
     }
   ]
 
 MainContainer = () => {
     const [cardData, setCardData] = useState(initialState);
-}
+
 
 return (
     <div>
@@ -33,3 +33,5 @@ return (
         
     </div>
 )
+    }
+export default Card;
