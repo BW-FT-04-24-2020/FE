@@ -3,21 +3,43 @@ import { useHistory} from "react-router-dom"
 import { authenticAxios } from '../utils/authenticAxios';
 
 const Login = () => {
+
     const [user, setUser] = useState({
         name: '',
         email: '',
         password: '',
     })
+
+    const [newUser, setNewUser] = useState({
+        name: '',
+        email: '',
+        password: '',
+
+    })
     const { push } = useHistory();
 
     const handleChange = event => {
+        event.persist()
         setUser({
     
           ...user,
           [event.target.name]: event.target.value
     
         })
+
+        
     }
+
+    const handleSignChange = event =>{
+        event.persist()
+        setNewUser({
+    
+            ...newUser,
+            [event.target.name]: event.target.value
+      
+          })
+    }
+
     const handleLogin = event => {
         event.preventDefault();
         authenticAxios()
@@ -32,12 +54,12 @@ const Login = () => {
       const handleSignUp = event => {
         event.preventDefault();
         authenticAxios()
-          .post('/', user)
+          .post('/', newUser)
           .then(res => {
             console.log(res)
             push('/')
           })
-          .catch(err => console.log('Login Error:', err))
+          .catch(err => console.log('Sign Up Error:', err))
       }
     
     return (
@@ -83,16 +105,16 @@ const Login = () => {
                 <input
                     type='text'
                     name='name'
-                    value={user.name}
-                    onChange={handleChange}
+                    value={newUser.name}
+                    onChange={handleSignChange}
                 />
                 <br />
                 <label htmlFor='email' name='email' >email*</label>
                 <input
                     type='text'
                     name='email'
-                    value={user.email}
-                    onChange={handleChange}
+                    value={newUser.email}
+                    onChange={handleSignChange}
                 />
                 <br/>
                 <label htmlFor='password' name='password' >Password*</label>
@@ -100,8 +122,8 @@ const Login = () => {
                 <input
                     type='password'
                     name='password'
-                    value={user.password}
-                    onChange={handleChange}
+                    value={newUser.password}
+                    onChange={handleSignChange}
                 />
                 <br/>
                 <button onClick= {() => {push('/')}}>Submit</button>
