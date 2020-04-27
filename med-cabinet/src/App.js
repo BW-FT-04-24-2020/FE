@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Does this edit in real time on my browser?
         </a>
       </header>
     </div>
