@@ -7,7 +7,14 @@ const Login = () => {
         email: '',
         password: '',
     })
-
+    
+    const handleChange = event => {
+        setUser({
+    
+          ...user,
+          [event.target.name]: event.target.value
+    
+        })
     return (
         <>
             <h1>MedCabinet</h1>
@@ -23,7 +30,7 @@ const Login = () => {
                 <input
                     type='text'
                     name='email'
-                    value={user.name}
+                    value={user.email}
                 />
                 <br/>
                 <label htmlFor='password' name='password' >Password*</label>
