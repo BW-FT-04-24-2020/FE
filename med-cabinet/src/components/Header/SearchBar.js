@@ -31,8 +31,7 @@ const SearchBar = () => {
     };
 
     const Search = styled('form')`
-        border: 1px solid blue;
-        width: 35vw;
+        width: 50vw;
         input {
             width: 30vw;
             margin-right: 3%;
