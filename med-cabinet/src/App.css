@@ -10,3 +10,8 @@ h5,
 h6 {
     font-family: 'Baloo Paaji 2', cursive;
 }
+
+* {
+    list-style-type: none;
+    text-decoration: none;
+}
