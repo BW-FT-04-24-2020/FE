@@ -1,26 +1,36 @@
-import React from 'react'
+import React from 'react';
 
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
 
-export const Header = () => {
+import styled from 'styled-components';
+
+export default function Header() {
+    const FlexedDiv = styled('div')`
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-items: center;
+        align-items: center;
+        h2 {
+            color: black;
+            text-decoration: none;
+            font-size: 3rem;
+            margin: 0;
+        }
+    `;
 
     // Header Component for pages all across. Has Logo, SearchBar, and Login/Register Buttons
     return (
-        <div>
+        <FlexedDiv>
             {/* Links to different parts of the website on the navigation. */}
             <ul>
-                <li>
-                    <Link to='/'>
-                        <h2>
-                            MedCabinet
-                        </h2>
-                    </Link>
-                </li>
+                <Link to="/home">
+                    <h2>MedCabinet</h2>
+                </Link>
             </ul>
             {/* SearchBar component for the Headers */}
-            <SearchBar/>
-        </div>
+            <SearchBar />
+        </FlexedDiv>
     );
 }

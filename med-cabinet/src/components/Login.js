@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
 import { authenticAxios } from '../utils/authenticAxios';
+
 
 const Login = () => {
 
@@ -9,7 +11,8 @@ const Login = () => {
         name: '',
         email: '',
         password: '',
-    })
+    });
+
 
     //sign up state
     const [newUser, setNewUser] = useState({
@@ -71,9 +74,11 @@ const Login = () => {
             .catch(err => console.log('Sign Up Error:', err))
     }
 
+
     return (
         <>
             <h1>MedCabinet</h1>
+
             <div className='credDiv'>
 
 
@@ -150,4 +155,5 @@ const Login = () => {
     )
 }
 export default Login
+
 
