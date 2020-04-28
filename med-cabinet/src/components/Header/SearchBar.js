@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { authenticAxios } from '../../utils/authenticAxios';
 
-
 import styled from 'styled-components';
-
-
+import AdvancedSearch from './AdvancedSearch';
 
 const SearchBar = () => {
     // Empty initial state for the search bar
@@ -33,31 +31,39 @@ const SearchBar = () => {
             });
     };
 
-
     const Search = styled('form')`
-        width: 50vw;
         input {
             width: 30vw;
-            margin-right: 3%;
+
+            margin-top: 3%;
+        }
+    `;
+    const SearchContainer = styled('div')`
+        width: 50vw;
+        padding: 3%;
+        button {
+            margin: 2%;
         }
     `;
 
     return (
         // Search bar form with button
-        <div>
-            <Search>
-                <input
-                    type="text"
-                    name="searchBar"
-                    value={search.searchString}
-                    onChange={handleChanges}
-                    placeholder="Search Strains, Effects, or Ailments"
-                />
-                <button>Search</button>
-            </Search>
-        </div>
+        <>
+            <SearchContainer>
+                <Search>
+                    <input
+                        type="text"
+                        name="searchBar"
+                        value={search.searchString}
+                        onChange={handleChanges}
+                        placeholder="Search Strains, Effects, or Ailments"
+                    />
+                    <button>Search</button>
+                </Search>
+                <button>Advanced Search</button>
+            </SearchContainer>
+        </>
     );
 };
 
 export default SearchBar;
-
