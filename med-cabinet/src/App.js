@@ -1,23 +1,23 @@
 import React from 'react';
 import './App.css';
+import './Login.css'
 
-import { BrowserRouter as Route, Router } from 'react-router-dom';
-
-import {Header} from './components/Header/Header'
+import { BrowserRouter as Route, Switch } from 'react-router-dom'
 import Login from './components/Login'
+
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
+    <div className='App'>
+      <Switch>
+        <Route exact path="/">
+          <Login />
+        </Route>
+      </Switch>
+    </div>
 
-        <Route path="/" component={Login} />
-        <Route component={Login} />
 
 
-      </div>
-    </Router>
 
   );
 }
