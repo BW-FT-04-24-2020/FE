@@ -18,24 +18,24 @@ export const initialState = {
 export const CardSection = styled('section')`
     border: 1px solid black;
     margin: 2%;
-    padding: 2%;
+    padding: 0;
 `;
+export const settings = {
+    adaptiveHeight: true,
+    arrows: false,
+    arrowsScroll: 5,
+    autoplay: true,
+    autoplayScroll: 5,
+    autoplaySpeed: 5000,
+    centerMode: true,
+    dots: true,
+    duration: 300,
+    initialSlide: 3,
+    slidesToShow: 5,
+};
 
 class TopStrains extends React.Component {
     render() {
-        const settings = {
-            adaptiveHeight: true,
-            arrowsScroll: 2,
-            autoplay: true,
-            autoplayScroll: 3,
-            autoplaySpeed: 5000,
-            centerMode: true,
-            dots: true,
-            duration: 300,
-            initialSlide: 3,
-            slidesToShow: 3,
-            wheel: true,
-        };
         return (
             <div>
                 <h2>Top Strains</h2>
