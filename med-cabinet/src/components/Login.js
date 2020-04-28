@@ -1,53 +1,53 @@
-import React, { useState } from 'react'
-
-
+import React, { useState } from 'react';
 const Login = () => {
     const [user, setUser] = useState({
         name: '',
         email: '',
         password: '',
-    })
-
-    const handleChange = event => {
+    });
+    const handleChange = (event) => {
         setUser({
-    
-          ...user,
-          [event.target.name]: event.target.value
-    
-        })
+            ...user,
+            [event.target.name]: event.target.value,
+        });
+    };
     return (
         <div>
             <h1>MedCabinet</h1>
             <form>
-                <label htmlFor='name' name='name' >Name*</label>
+                <label htmlFor="name" name="name">
+                    Name*
+                </label>
                 <input
-                    type='text'
-                    name='name'
+                    type="text"
+                    name="name"
                     value={user.name}
                     onChange={handleChange}
                 />
                 <br />
-                <label htmlFor='email' name='email' >email*</label>
+                <label htmlFor="email" name="email">
+                    email*
+                </label>
                 <input
-                    type='text'
-                    name='email'
+                    type="text"
+                    name="email"
                     value={user.email}
                     onChange={handleChange}
                 />
-                <br/>
-                <label htmlFor='password' name='password' >Password*</label>
-
+                <br />
+                <label htmlFor="password" name="password">
+                    Password*
+                </label>
                 <input
-                    type='password'
-                    name='password'
+                    type="password"
+                    name="password"
                     value={user.password}
                     onChange={handleChange}
                 />
-                <br/>
+                <br />
                 <button>Login</button>
             </form>
         </div>
-    )
-}
-}
-export default Login
+    );
+};
+export default Login;
