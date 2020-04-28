@@ -3,38 +3,15 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 export const initialState = {
-    Afpak: {
-        id: 1,
-        race: 'hybrid',
-        flavors: ['Earthy', 'Chemical', 'Pine'],
-        effect: {
-            positive: ['Relaxed', 'Hungry', 'Happy', 'Sleepy'],
-            negative: ['Dizzy'],
-            medical: [
-                'Depression',
-                'Insomnia',
-                'Pain',
-                'Stress',
-                'Lack of Appetite',
-            ],
-        },
-    },
-    African: {
-        id: 2,
-        race: 'sativa',
-        flavors: ['Spicy/Herbal', 'Pungent', 'Earthy'],
-        effects: {
-            positive: [
-                'Euphoric',
-                'Happy',
-                'Creative',
-                'Energetic',
-                'Talkative',
-            ],
-            negative: ['Dry Mouth'],
-            medical: ['Depression', 'Pain'],
-        },
-    },
+    id: 100,
+    name: 'blah',
+    race: 'hybrid',
+    flavors: 'Berry, Blueberry, Citrus',
+    positive: 'Hungry, Euphoric, Creative, Aroused',
+    negative: 'Dry Mouth',
+    medical: 'Pain, Nausea, Headaches',
+    rating: 4.2,
+    description: 'This is some good stuff.',
 };
 
 export const CardSection = styled('section')`
@@ -45,6 +22,7 @@ export const CardSection = styled('section')`
     div {
         border: 1px solid black;
         margin: 2%;
+        background-color: rgb(143, 188, 139, 0.2);
     }
 `;
 

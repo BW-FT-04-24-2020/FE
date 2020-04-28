@@ -12,6 +12,7 @@ export default function Header() {
         grid-template-columns: 1fr 2fr;
         justify-items: center;
         align-items: center;
+        background-color: DarkSeaGreen;
         h2 {
             color: black;
             text-decoration: none;

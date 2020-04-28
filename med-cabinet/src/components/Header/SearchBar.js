@@ -60,7 +60,7 @@ const SearchBar = () => {
                     />
                     <button>Search</button>
                 </Search>
-                <button>Advanced Search</button>
+                {/* <AdvancedSearch /> */}
             </SearchContainer>
         </>
     );

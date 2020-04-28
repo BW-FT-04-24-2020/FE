@@ -1,18 +1,13 @@
 import React from 'react';
 import './App.css';
-import './Login.css'
-
+import './Login.css';
 
 import { BrowserRouter as Route, Switch } from 'react-router-dom';
 
 import HomePage from './components/HomePage';
 import Login from './components/Login';
 
-
-
-
 function App() {
-
     return (
         <div className="App">
             <Switch>
@@ -25,8 +20,6 @@ function App() {
             </Switch>
         </div>
     );
-
-
 }
 
 export default App;
