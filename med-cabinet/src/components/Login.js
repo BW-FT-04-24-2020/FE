@@ -74,7 +74,7 @@ const Login = () => {
         axios
             .post('https://medcab1.herokuapp.com/api/auth/login', user)
             .then(res => {
-                console.log(res)
+                localStorage.setItem('token', JSON.stringify(res.data.token))
                 setUser({
                     name: '',
                     email: '',
@@ -187,7 +187,7 @@ const Login = () => {
                             onChange={handleSignChange}
                         />
                         <br />
-                        
+
                         <label htmlFor='password' name='password' >Password*</label>
                         <br />
 
