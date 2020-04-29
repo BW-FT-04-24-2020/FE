@@ -3,6 +3,7 @@ import { settings, CardDiv, CardSection, initialState } from './Settings';
 import Slider from 'infinite-react-carousel';
 import { authenticAxios } from '../../utils/authenticAxios';
 
+// Top Strains that connects to HomePage.js
 class TopStrains extends React.Component {
     state = {
         id: '',
@@ -18,17 +19,6 @@ class TopStrains extends React.Component {
     componentDidMount() {
         this.getStrainsData();
     }
-
-    getStrainsData = () => {
-        authenticAxios()
-            .get('/') // ADD THE ENDPOINT WHEN BACKEND GETS IT READY///////////////////////
-            .then((res) => {
-                console.log('res', res);
-            })
-            .catch((err) => {
-                console.log('error', err);
-            });
-    };
 
     render() {
         return (
