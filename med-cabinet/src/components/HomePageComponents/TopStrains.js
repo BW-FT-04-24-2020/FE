@@ -1,8 +1,35 @@
 import React from 'react';
 import { settings, CardDiv, CardSection, initialState } from './Settings';
 import Slider from 'infinite-react-carousel';
+import { authenticAxios } from '../../utils/authenticAxios';
 
 class TopStrains extends React.Component {
+    state = {
+        id: '',
+        name: '',
+        race: '',
+        flavors: '',
+        positive: '',
+        negative: '',
+        medical: '',
+        rating: 4.2,
+        description: '',
+    };
+    componentDidMount() {
+        this.getStrainsData();
+    }
+
+    getStrainsData = () => {
+        authenticAxios()
+            .get('/') // ADD THE ENDPOINT WHEN BACKEND GETS IT READY///////////////////////
+            .then((res) => {
+                console.log('res', res);
+            })
+            .catch((err) => {
+                console.log('error', err);
+            });
+    };
+
     render() {
         return (
             <CardSection>
