@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-
+// setting up state for the api data ill be getting back
 const initialState = [
     {
         id: '',
@@ -10,9 +10,8 @@ const initialState = [
     }
 ]
 
-MainContainer = () => {
+const Card = () => {
     const [cardData, setCardData] = useState(initialState);
-
 
     return (
         <div>
