@@ -11,10 +11,6 @@ import SleepyStrains from './SleepyStrains';
 const HomePage = () => {
     return (
         <div>
-            <link
-                rel="stylesheet"
-                href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"
-            ></link>
             {/* Header */}
             <Header />
             {/* What will be the app tiles that carousel */}
