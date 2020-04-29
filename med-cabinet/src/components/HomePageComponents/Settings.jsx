@@ -26,6 +26,18 @@ export const initialState = [
     },
 ];
 
+export const emptyState = {
+    id: '',
+    name: '',
+    race: '',
+    flavors: '',
+    positive: '',
+    negative: '',
+    medical: '',
+    rating: 4.2,
+    description: '',
+};
+
 // Styled-Components that will be displayed across all the carousels
 export const CardDiv = styled('div')`
     border: 1px solid black;

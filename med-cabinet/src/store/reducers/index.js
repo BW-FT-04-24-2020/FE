@@ -11,7 +11,7 @@ const initialState = {
     error: '',
     isFetching: false,
 }
-const SavedStrainsReducer = (state, action) => {
+const SavedStrainsReducer = (state = initialState, action) => {
     console.log('in SavedStrainsReducer', state, action);
     switch (action.type) {
         case FETCH_STRAINS_START:
