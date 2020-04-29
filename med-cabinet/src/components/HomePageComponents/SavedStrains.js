@@ -3,6 +3,8 @@ import { CardDiv, CardSection, initialState } from './TopStrains';
 
 import Slider from 'infinite-react-carousel';
 import { settings } from './TopStrains';
+
+// SavedStrains file that links to HomPage.js
 class SavedStrains extends React.Component {
     render() {
         return (

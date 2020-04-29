@@ -4,6 +4,7 @@ import { CardDiv, CardSection, initialState } from './TopStrains';
 import Slider from 'infinite-react-carousel';
 import { settings } from './TopStrains';
 
+// SleepyStrains that connects to HomePage.js
 class SleepyStrains extends React.Component {
     render() {
         return (

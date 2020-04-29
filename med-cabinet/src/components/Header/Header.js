@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
 import SearchBar from './SearchBar';
@@ -7,6 +6,7 @@ import SearchBar from './SearchBar';
 import styled from 'styled-components';
 
 export default function Header() {
+    // Styled-Component
     const FlexedDiv = styled('div')`
         display: grid;
         grid-template-columns: 1fr 2fr;

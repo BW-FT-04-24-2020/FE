@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { authenticAxios } from '../../utils/authenticAxios';
 
 import styled from 'styled-components';
-import AdvancedSearch from './AdvancedSearch';
 
 const SearchBar = () => {
     // Empty initial state for the search bar
@@ -31,6 +30,7 @@ const SearchBar = () => {
             });
     };
 
+    //  Styled-Components
     const Search = styled('form')`
         input {
             width: 30vw;

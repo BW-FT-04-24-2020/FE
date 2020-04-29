@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Slider from 'infinite-react-carousel';
 import styled from 'styled-components';
 
+// Dummy data for testing before the API link
 export const initialState = [
     {
         id: 100,
@@ -28,26 +29,29 @@ export const initialState = [
     },
 ];
 
+// Styled-Components that will be displayed across all the carousels
 export const CardDiv = styled('div')`
     border: 1px solid black;
-    margin: 2% 0;
+    margin: 5% 0;
     padding: 0;
 `;
 export const CardSection = styled('section')`
-    margin: 2% 0 5%;
+    margin: 1% 0 3%;
+    padding: 1%;
 `;
 
+// Settings for the Carousels
 export const settings = {
-    // adaptiveHeight: true,
+    adaptiveHeight: true,
+    accessibility: true,
     arrows: false,
-    arrowsScroll: 5,
     autoplay: true,
-    autoplayScroll: 5,
+    autoplayScroll: 4,
     autoplaySpeed: 5000,
-    centerMode: true,
+    centerMode: false,
     dots: true,
     duration: 300,
-    initialSlide: 3,
+    initialSlide: 1,
     slidesToShow: 5,
 };
 
@@ -57,118 +61,15 @@ class TopStrains extends React.Component {
             <CardSection>
                 <h2>Top Strains</h2>
                 <Slider {...settings}>
-                    <CardDiv>
-                        <h3>StrainName</h3>
-                        <p>StrainRace</p>
-                        <p>
-                            StrainText, description.StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description.
-                        </p>
-                        <h5>Effects</h5>
-                        <ul>Medical:</ul>
-                        <ul>Positive:</ul>
-                        <ul>Negative:</ul>
-                    </CardDiv>
-                    <CardDiv>
-                        <h3>StrainName</h3>
-                        <p>StrainRace</p>
-                        <p>
-                            StrainText, description.StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description.
-                        </p>
-                        <h5>Effects</h5>
-                        <ul>Medical:</ul>
-                        <ul>Positive:</ul>
-                        <ul>Negative:</ul>
-                    </CardDiv>{' '}
-                    <CardDiv>
-                        <h3>StrainName</h3>
-                        <p>StrainRace</p>
-                        <p>
-                            StrainText, description.StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description.
-                        </p>
-                        <h5>Effects</h5>
-                        <ul>Medical:</ul>
-                        <ul>Positive:</ul>
-                        <ul>Negative:</ul>
-                    </CardDiv>{' '}
-                    <CardDiv>
-                        <h3>StrainName</h3>
-                        <p>StrainRace</p>
-                        <p>
-                            StrainText, description.StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description.
-                        </p>
-                        <h5>Effects</h5>
-                        <ul>Medical:</ul>
-                        <ul>Positive:</ul>
-                        <ul>Negative:</ul>
-                    </CardDiv>{' '}
-                    <CardDiv>
-                        <h3>StrainName</h3>
-                        <p>StrainRace</p>
-                        <p>
-                            StrainText, description.StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description.
-                        </p>
-                        <h5>Effects</h5>
-                        <ul>Medical:</ul>
-                        <ul>Positive:</ul>
-                        <ul>Negative:</ul>
-                    </CardDiv>{' '}
-                    <CardDiv>
-                        <h3>StrainName</h3>
-                        <p>StrainRace</p>
-                        <p>
-                            StrainText, description.StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description.
-                        </p>
-                        <h5>Effects</h5>
-                        <ul>Medical:</ul>
-                        <ul>Positive:</ul>
-                        <ul>Negative:</ul>
-                    </CardDiv>{' '}
-                    <CardDiv>
-                        <h3>StrainName</h3>
-                        <p>StrainRace</p>
-                        <p>
-                            StrainText, description.StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description.
-                        </p>
-                        <h5>Effects</h5>
-                        <ul>Medical:</ul>
-                        <ul>Positive:</ul>
-                        <ul>Negative:</ul>
-                    </CardDiv>{' '}
-                    <CardDiv>
-                        <h3>StrainName</h3>
-                        <p>StrainRace</p>
-                        <p>
-                            StrainText, description.StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description.
-                        </p>
-                        <h5>Effects</h5>
-                        <ul>Medical:</ul>
-                        <ul>Positive:</ul>
-                        <ul>Negative:</ul>
-                    </CardDiv>{' '}
+                    <div></div>
+                    {/* Component from infinite-react-carousel */}
+                    {initialState.forEach((value, i) => {
+                        return (
+                            <CardDiv key={i}>
+                                <h3>{value.name}</h3>
+                            </CardDiv>
+                        );
+                    })}
                 </Slider>
             </CardSection>
         );

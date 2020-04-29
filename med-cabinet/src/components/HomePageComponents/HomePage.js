@@ -14,7 +14,7 @@ const HomePage = () => {
             ></link>
             {/* Header */}
             <Header />
-            {/* What will be the app tiles that carasel */}
+            {/* What will be the app tiles that carousel */}
             <TopStrains />
             <SavedStrains />
             <SleepyStrains />
