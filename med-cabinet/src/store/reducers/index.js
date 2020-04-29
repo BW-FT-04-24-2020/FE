@@ -1,11 +1,10 @@
+import { combineReducers } from 'redux';
 import {
     FETCH_STRAINS_START,
     FETCH_STRAINS_SUCCESS,
     FETCH_STRAINS_FAILURE,
 } from '../actions';
-export const rootReducer = combineReducers({
-    saveStrains: SavedStrainsReducer,
-});
+
 const initialState = {
     strains: [],
     error: '',
@@ -37,3 +36,6 @@ const SavedStrainsReducer = (state = initialState, action) => {
             return state;
     }
 };
+export const rootReducer = combineReducers({
+    saveStrains: SavedStrainsReducer,
+});

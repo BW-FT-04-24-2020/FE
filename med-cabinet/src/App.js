@@ -7,17 +7,26 @@ import { BrowserRouter as Route, Switch } from 'react-router-dom';
 import HomePage from './components/HomePageComponents/HomePage';
 import Login from './components/Login';
 
+import { createStore, applyMiddleware } from 'redux';
+import { rootReducer } from './store/reducers';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
 function App() {
     return (
         <div className="App">
-            <Switch>
-                <Route exact path="/home">
-                    <HomePage />
-                </Route>
-                <Route exact path="/">
-                    <Login />
-                </Route>
-            </Switch>
+            <Provider store={store}>
+                <Switch>
+                    <Route exact path="/home">
+                        <HomePage />
+                    </Route>
+                    <Route exact path="/">
+                        <Login />
+                    </Route>
+                </Switch>
+            </Provider>
         </div>
     );
 }

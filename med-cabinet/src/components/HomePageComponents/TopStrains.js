@@ -1,13 +1,15 @@
-import React from 'react';
-import { settings, CardDiv, CardSection } from './Settings';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import Slider from 'infinite-react-carousel';
+
+import { settings, CardDiv, CardSection } from './Settings';
 import { getStrainsData } from '../../store/actions/index';
 
 // Top Strains that connects to HomePage.js
 const TopStrains = (props) => {
-    React.useEffect(() => {
-        props.getStrainsData();
-    }, []);
+    // React.useEffect(() => {
+    //     props.getStrainsData();
+    // }, []);
 
     console.log('TopStrains props', props);
     return (
@@ -39,4 +41,8 @@ const TopStrains = (props) => {
         </CardSection>
     );
 };
-export default TopStrains;
+const mapStateToProps = (state) => {
+    console.log('mapStateToProps state: ', state);
+    return {};
+};
+export default connect(mapStateToProps, { getStrainsData })(TopStrains);
