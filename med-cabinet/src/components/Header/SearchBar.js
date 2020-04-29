@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { authenticAxios } from '../../utils/authenticAxios';
 
 import styled from 'styled-components';
