@@ -1,17 +1,37 @@
+import {
+    FETCH_STRAINS_START,
+    FETCH_STRAINS_SUCCESS,
+    FETCH_STRAINS_FAILURE,
+} from '../actions';
 export const rootReducer = combineReducers({
     saveStrains: SavedStrainsReducer,
 });
-
+const initialState = {
+    strains =[],
+    error: '',
+    isFetching: false,
+}
 const SavedStrainsReducer = (state, action) => {
     console.log('in SavedStrainsReducer', state, action);
     switch (action.type) {
-        case 'SAVE_STRAIN':
+        case FETCH_STRAINS_START:
             return {
-                state,
+                ...state,
+                error: '', 
+                isFetching: true,
             };
-        case 'REMOVE_SAVED_STRAIN':
+        case FETCH_STRAINS_SUCCESS:
             return {
-                state,
+                ...state,
+                strains: action.payload,
+                error: '',
+                isFetching: false,
+            };
+        case FETCH_STRAINS_FAILURE:
+            return {
+                ...state,
+                error: action.payolad,
+                isFetching: false,
             };
         default:
             return state;

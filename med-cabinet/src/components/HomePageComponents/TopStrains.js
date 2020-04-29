@@ -1,7 +1,6 @@
 import React from 'react';
 import { settings, CardDiv, CardSection, initialState } from './Settings';
 import Slider from 'infinite-react-carousel';
-import { authenticAxios } from '../../utils/authenticAxios';
 import { getStrainsData } from '../../store/actions/index';
 
 // Top Strains that connects to HomePage.js

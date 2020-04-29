@@ -1,4 +1,4 @@
-import { authenticAxios } from '../../utils/authenticAxios';
+import axios from 'axios';
 
 // Retrieving strains from the api
 export const FETCH_STRAINS_START = 'FETCH_STRAINS_START';
@@ -9,8 +9,8 @@ export const getStrainsData = () => {
     return (dispatch) => {
         dispatch({ type: FETCH_STRAINS_START });
 
-        authenticAxios()
-            .get('/') // ADD THE ENDPOINT WHEN BACKEND GETS IT READY///////////////////////
+        axios()
+            .get('https://medcabinet-strain-api.herokuapp.com/strains/all')
             .then((res) => {
                 console.log('res', res);
                 dispatch({ type: FETCH_STRAINS_SUCCESS, payload: res }); // UPDATE PAYLOAD////////
