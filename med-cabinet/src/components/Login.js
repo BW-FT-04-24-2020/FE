@@ -146,6 +146,7 @@ const Login = () => {
                             onChange={handleChange}
                         />
                         <br />
+                        {error.email.length > 0 ? <p>{error.email}</p> : null}
                         <label htmlFor='password' name='password' >Password*</label>
                         <br />
                         <input
@@ -155,6 +156,7 @@ const Login = () => {
                             onChange={handleChange}
                         />
                         <br />
+                        {error.password.length > 0 ? <p>{error.password}</p> : null}
                         <button>Login</button>
 
                     </form>
@@ -163,6 +165,7 @@ const Login = () => {
                     <h2>Not a Member? <br/> Sign Up Today!</h2>
                     <form onSubmit={handleSignUp}>
                         <label htmlFor='name' name='name' >Name*</label>
+
                         <br />
                         <input
                             type='text'
@@ -171,8 +174,12 @@ const Login = () => {
                             onChange={handleSignChange}
                         />
                         <br />
+
+                        {error.name.length > 0 ? <p>{error.name}</p> : null}
+
                         <label htmlFor='email' name='email' >Email*</label>
                         <br />
+
                         <input
                             type='text'
                             name='email'
@@ -180,6 +187,7 @@ const Login = () => {
                             onChange={handleSignChange}
                         />
                         <br />
+                        
                         <label htmlFor='password' name='password' >Password*</label>
                         <br />
 
