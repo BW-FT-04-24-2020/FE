@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { CardDiv, CardSection, initialState } from './TopStrains';
+import React from 'react';
+import { settings, CardDiv, CardSection } from './Settings';
 
 import Slider from 'infinite-react-carousel';
-import { settings } from './TopStrains';
 
 // SavedStrains file that links to HomPage.js
 class SavedStrains extends React.Component {
