@@ -1,7 +1,15 @@
 
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
-import { authenticAxios } from '../utils/authenticAxios';
+import axios from 'axios'
+import * as yup from 'yup';
+
+//set up the form schema
+const formSchema = yup.object().shape({
+    name: yup.string().min(2).required("Please Enter a Name Longer Than 2 Characters."),
+    email: yup.string().required("Please Enter A Valid Email"),
+    password: yup.string().required('Please Enter A Password')
+})
 
 
 const Login = () => {
@@ -22,6 +30,14 @@ const Login = () => {
 
     })
 
+    //error state
+    const [error, setError] = useState({
+        name: '',
+        email: '',
+        password: '',
+
+    })
+
     const { push } = useHistory();
 
 
@@ -35,8 +51,10 @@ const Login = () => {
 
         })
 
-
+        validateChange(event)
     }
+
+    const [addDisabled, setAddDisabled] = useState(true)
 
     //handles changes on sign up form
     const handleSignChange = event => {
@@ -47,31 +65,65 @@ const Login = () => {
             [event.target.name]: event.target.value
 
         })
+        validateChange(event)
     }
 
     //handles login request
     const handleLogin = event => {
         event.preventDefault();
-        authenticAxios()
-            .post('/', user)
+        axios
+            .post('https://medcab1.herokuapp.com/api/auth/login', user)
             .then(res => {
-                console.log(res)
+                localStorage.setItem('token', JSON.stringify(res.data.token))
+                setUser({
+                    name: '',
+                    email: '',
+                    password: '',
+                }
+                )
+                push('/home')
 
             })
             .catch(err => console.log('Login Error:', err))
+            push('/home')
+
     }
 
     //handles sign up request
     const handleSignUp = event => {
         event.preventDefault();
-        authenticAxios()
-            .post('/', newUser)
+        axios
+            .post('https://medcab1.herokuapp.com/api/auth/register', newUser)
             .then(res => {
                 console.log(res)
                 alert('Sign Up Sucsessful!')
+                setNewUser({
+                    name: '',
+                    email: '',
+                    password: '',
+                }
+                )
                 push('/')
             })
             .catch(err => console.log('Sign Up Error:', err))
+    }
+
+    const validateChange = event => {
+        yup.reach(formSchema, event.target.name)
+            .validate(event.target.type === event.target.value)
+            .then(valid => {
+                setError({
+                    ...error,
+                    [event.target.name]: ""
+                });
+            })
+            .catch(err => {
+                console.log(err)
+                setError({
+                    ...error,
+                    [event.target.name]: err.errors[0]
+                })
+            })
     }
 
 
@@ -85,15 +137,6 @@ const Login = () => {
                 <div className='login'>
                     <h2>Sign In</h2>
                     <form onSubmit={handleLogin}>
-                        <label htmlFor='name' name='name' >Name*</label>
-                        <br />
-                        <input
-                            type='text'
-                            name='name'
-                            value={user.name}
-                            onChange={handleChange}
-                        />
-                        <br />
                         <label htmlFor='email' name='email' >Email*</label>
                         <br />
                         <input
@@ -103,6 +146,7 @@ const Login = () => {
                             onChange={handleChange}
                         />
                         <br />
+                        {error.email.length > 0 ? <p>{error.email}</p> : null}
                         <label htmlFor='password' name='password' >Password*</label>
                         <br />
                         <input
@@ -112,6 +156,7 @@ const Login = () => {
                             onChange={handleChange}
                         />
                         <br />
+                        {error.password.length > 0 ? <p>{error.password}</p> : null}
                         <button>Login</button>
 
                     </form>
@@ -120,6 +165,7 @@ const Login = () => {
                     <h2>Not a Member? <br/> Sign Up Today!</h2>
                     <form onSubmit={handleSignUp}>
                         <label htmlFor='name' name='name' >Name*</label>
+
                         <br />
                         <input
                             type='text'
@@ -128,8 +174,12 @@ const Login = () => {
                             onChange={handleSignChange}
                         />
                         <br />
+
+                        {error.name.length > 0 ? <p>{error.name}</p> : null}
+
                         <label htmlFor='email' name='email' >Email*</label>
                         <br />
+
                         <input
                             type='text'
                             name='email'
@@ -137,6 +187,7 @@ const Login = () => {
                             onChange={handleSignChange}
                         />
                         <br />
+
                         <label htmlFor='password' name='password' >Password*</label>
                         <br />
 
