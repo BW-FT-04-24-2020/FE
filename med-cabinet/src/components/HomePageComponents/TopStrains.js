@@ -3,25 +3,42 @@ import React, { useState } from 'react';
 import Slider from 'infinite-react-carousel';
 import styled from 'styled-components';
 
-export const initialState = {
-    id: 100,
-    name: 'blah',
-    race: 'hybrid',
-    flavors: 'Berry, Blueberry, Citrus',
-    positive: 'Hungry, Euphoric, Creative, Aroused',
-    negative: 'Dry Mouth',
-    medical: 'Pain, Nausea, Headaches',
-    rating: 4.2,
-    description: 'This is some good stuff.',
-};
+export const initialState = [
+    {
+        id: 100,
+        name: 'blah',
+        race: 'hybrid',
+        flavors: 'Berry, Blueberry, Citrus',
+        positive: 'Hungry, Euphoric, Creative, Aroused',
+        negative: 'Dry Mouth',
+        medical: 'Pain, Nausea, Headaches',
+        rating: 4.2,
+        description: 'This is some good stuff.',
+    },
+    {
+        id: 101,
+        name: 'blah2',
+        race: 'sativa',
+        flavors: 'Berry, Blueberry, Citrus',
+        positive: 'Hungry, Euphoric, Creative, Aroused',
+        negative: 'Dry Mouth',
+        medical: 'Pain, Nausea, Headaches',
+        rating: 4.2,
+        description: 'This is some good stuff.',
+    },
+];
 
-export const CardSection = styled('section')`
+export const CardDiv = styled('div')`
     border: 1px solid black;
-    margin: 2%;
+    margin: 2% 0;
     padding: 0;
 `;
+export const CardSection = styled('section')`
+    margin: 2% 0 5%;
+`;
+
 export const settings = {
-    adaptiveHeight: true,
+    // adaptiveHeight: true,
     arrows: false,
     arrowsScroll: 5,
     autoplay: true,
@@ -37,10 +54,10 @@ export const settings = {
 class TopStrains extends React.Component {
     render() {
         return (
-            <div>
+            <CardSection>
                 <h2>Top Strains</h2>
                 <Slider {...settings}>
-                    <CardSection>
+                    <CardDiv>
                         <h3>StrainName</h3>
                         <p>StrainRace</p>
                         <p>
@@ -53,8 +70,8 @@ class TopStrains extends React.Component {
                         <ul>Medical:</ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
-                    </CardSection>
-                    <CardSection>
+                    </CardDiv>
+                    <CardDiv>
                         <h3>StrainName</h3>
                         <p>StrainRace</p>
                         <p>
@@ -67,8 +84,8 @@ class TopStrains extends React.Component {
                         <ul>Medical:</ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
-                    </CardSection>{' '}
-                    <CardSection>
+                    </CardDiv>{' '}
+                    <CardDiv>
                         <h3>StrainName</h3>
                         <p>StrainRace</p>
                         <p>
@@ -81,8 +98,8 @@ class TopStrains extends React.Component {
                         <ul>Medical:</ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
-                    </CardSection>{' '}
-                    <CardSection>
+                    </CardDiv>{' '}
+                    <CardDiv>
                         <h3>StrainName</h3>
                         <p>StrainRace</p>
                         <p>
@@ -95,8 +112,8 @@ class TopStrains extends React.Component {
                         <ul>Medical:</ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
-                    </CardSection>{' '}
-                    <CardSection>
+                    </CardDiv>{' '}
+                    <CardDiv>
                         <h3>StrainName</h3>
                         <p>StrainRace</p>
                         <p>
@@ -109,8 +126,8 @@ class TopStrains extends React.Component {
                         <ul>Medical:</ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
-                    </CardSection>{' '}
-                    <CardSection>
+                    </CardDiv>{' '}
+                    <CardDiv>
                         <h3>StrainName</h3>
                         <p>StrainRace</p>
                         <p>
@@ -123,8 +140,8 @@ class TopStrains extends React.Component {
                         <ul>Medical:</ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
-                    </CardSection>{' '}
-                    <CardSection>
+                    </CardDiv>{' '}
+                    <CardDiv>
                         <h3>StrainName</h3>
                         <p>StrainRace</p>
                         <p>
@@ -137,8 +154,8 @@ class TopStrains extends React.Component {
                         <ul>Medical:</ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
-                    </CardSection>{' '}
-                    <CardSection>
+                    </CardDiv>{' '}
+                    <CardDiv>
                         <h3>StrainName</h3>
                         <p>StrainRace</p>
                         <p>
@@ -151,9 +168,9 @@ class TopStrains extends React.Component {
                         <ul>Medical:</ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
-                    </CardSection>{' '}
+                    </CardDiv>{' '}
                 </Slider>
-            </div>
+            </CardSection>
         );
     }
 }

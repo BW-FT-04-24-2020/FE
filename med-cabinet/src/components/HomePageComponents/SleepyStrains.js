@@ -3,11 +3,12 @@ import { CardDiv, CardSection, initialState } from './TopStrains';
 
 import Slider from 'infinite-react-carousel';
 import { settings } from './TopStrains';
-class SavedStrains extends React.Component {
+
+class SleepyStrains extends React.Component {
     render() {
         return (
             <CardSection>
-                <h2>Saved Strains</h2>
+                <h2>Strains To Help You Sleep</h2>
                 <Slider {...settings}>
                     <CardDiv>
                         <h3>StrainName</h3>
@@ -126,4 +127,4 @@ class SavedStrains extends React.Component {
         );
     }
 }
-export default SavedStrains;
+export default SleepyStrains;
