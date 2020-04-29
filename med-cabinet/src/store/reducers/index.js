@@ -7,17 +7,17 @@ export const rootReducer = combineReducers({
     saveStrains: SavedStrainsReducer,
 });
 const initialState = {
-    strains =[],
+    strains: [],
     error: '',
     isFetching: false,
-}
+};
 const SavedStrainsReducer = (state = initialState, action) => {
     console.log('in SavedStrainsReducer', state, action);
     switch (action.type) {
         case FETCH_STRAINS_START:
             return {
                 ...state,
-                error: '', 
+                error: '',
                 isFetching: true,
             };
         case FETCH_STRAINS_SUCCESS:
