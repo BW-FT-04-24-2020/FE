@@ -42,7 +42,7 @@ export const CardSection = styled('section')`
 
 // Settings for the Carousels
 export const settings = {
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     accessibility: true,
     arrows: false,
     autoplay: true,
@@ -61,8 +61,147 @@ class TopStrains extends React.Component {
             <CardSection>
                 <h2>Top Strains</h2>
                 <Slider {...settings}>
-                    <div></div>
                     {/* Component from infinite-react-carousel */}
+                    <CardDiv>
+                        <h3>StrainName</h3>
+                        <p>StrainRace</p>
+                        <p>
+                            StrainText, description.StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description.
+                        </p>
+                        <h5>Effects</h5>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
+                        <ul>Positive:</ul>
+                        <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
+                    </CardDiv>{' '}
+                    <CardDiv>
+                        <h3>StrainName</h3>
+                        <p>StrainRace</p>
+                        <p>
+                            StrainText, description.StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description.
+                        </p>
+                        <h5>Effects</h5>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
+                        <ul>Positive:</ul>
+                        <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
+                    </CardDiv>
+                    <CardDiv>
+                        <h3>StrainName</h3>
+                        <p>StrainRace</p>
+                        <p>
+                            StrainText, description.StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description.
+                        </p>
+                        <h5>Effects</h5>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
+                        <ul>Positive:</ul>
+                        <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
+                    </CardDiv>
+                    <CardDiv>
+                        <h3>StrainName</h3>
+                        <p>StrainRace</p>
+                        <p>
+                            StrainText, description.StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description.
+                        </p>
+                        <h5>Effects</h5>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
+                        <ul>Positive:</ul>
+                        <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
+                    </CardDiv>
+                    <CardDiv>
+                        <h3>StrainName</h3>
+                        <p>StrainRace</p>
+                        <p>
+                            StrainText, description.StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description.
+                        </p>
+                        <h5>Effects</h5>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
+                        <ul>Positive:</ul>
+                        <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
+                    </CardDiv>
+                    <CardDiv>
+                        <h3>StrainName</h3>
+                        <p>StrainRace</p>
+                        <p>
+                            StrainText, description.StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description.
+                        </p>
+                        <h5>Effects</h5>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
+                        <ul>Positive:</ul>
+                        <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
+                    </CardDiv>
+                    <CardDiv>
+                        <h3>StrainName</h3>
+                        <p>StrainRace</p>
+                        <p>
+                            StrainText, description.StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description.
+                        </p>
+                        <h5>Effects</h5>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
+                        <ul>Positive:</ul>
+                        <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
+                    </CardDiv>
                     {initialState.forEach((value, i) => {
                         return (
                             <CardDiv key={i}>

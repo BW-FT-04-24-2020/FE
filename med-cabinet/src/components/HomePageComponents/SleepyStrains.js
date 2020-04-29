@@ -21,23 +21,15 @@ class SleepyStrains extends React.Component {
                             StrainText, description.
                         </p>
                         <h5>Effects</h5>
-                        <ul>Medical:</ul>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
-                    </CardDiv>
-                    <CardDiv>
-                        <h3>StrainName</h3>
-                        <p>StrainRace</p>
-                        <p>
-                            StrainText, description.StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description. StrainText, description.
-                            StrainText, description.
-                        </p>
-                        <h5>Effects</h5>
-                        <ul>Medical:</ul>
-                        <ul>Positive:</ul>
-                        <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
                     </CardDiv>{' '}
                     <CardDiv>
                         <h3>StrainName</h3>
@@ -49,9 +41,15 @@ class SleepyStrains extends React.Component {
                             StrainText, description.
                         </p>
                         <h5>Effects</h5>
-                        <ul>Medical:</ul>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
                     </CardDiv>{' '}
                     <CardDiv>
                         <h3>StrainName</h3>
@@ -63,9 +61,15 @@ class SleepyStrains extends React.Component {
                             StrainText, description.
                         </p>
                         <h5>Effects</h5>
-                        <ul>Medical:</ul>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
                     </CardDiv>{' '}
                     <CardDiv>
                         <h3>StrainName</h3>
@@ -77,9 +81,15 @@ class SleepyStrains extends React.Component {
                             StrainText, description.
                         </p>
                         <h5>Effects</h5>
-                        <ul>Medical:</ul>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
                     </CardDiv>{' '}
                     <CardDiv>
                         <h3>StrainName</h3>
@@ -91,9 +101,15 @@ class SleepyStrains extends React.Component {
                             StrainText, description.
                         </p>
                         <h5>Effects</h5>
-                        <ul>Medical:</ul>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
                     </CardDiv>{' '}
                     <CardDiv>
                         <h3>StrainName</h3>
@@ -105,9 +121,15 @@ class SleepyStrains extends React.Component {
                             StrainText, description.
                         </p>
                         <h5>Effects</h5>
-                        <ul>Medical:</ul>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
                     </CardDiv>{' '}
                     <CardDiv>
                         <h3>StrainName</h3>
@@ -119,9 +141,55 @@ class SleepyStrains extends React.Component {
                             StrainText, description.
                         </p>
                         <h5>Effects</h5>
-                        <ul>Medical:</ul>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
                         <ul>Positive:</ul>
                         <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
+                    </CardDiv>{' '}
+                    <CardDiv>
+                        <h3>StrainName</h3>
+                        <p>StrainRace</p>
+                        <p>
+                            StrainText, description.StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description.
+                        </p>
+                        <h5>Effects</h5>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
+                        <ul>Positive:</ul>
+                        <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
+                    </CardDiv>{' '}
+                    <CardDiv>
+                        <h3>StrainName</h3>
+                        <p>StrainRace</p>
+                        <p>
+                            StrainText, description.StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description. StrainText, description.
+                            StrainText, description.
+                        </p>
+                        <h5>Effects</h5>
+                        <h6>Medical:</h6>
+                        <ul>
+                            <li>Effect1</li>
+                            <li>Effect2</li>
+                            <li>Effect3</li>
+                        </ul>
+                        <ul>Positive:</ul>
+                        <ul>Negative:</ul>
+                        <button>Add to Favorites</button>
                     </CardDiv>{' '}
                 </Slider>
             </CardSection>
