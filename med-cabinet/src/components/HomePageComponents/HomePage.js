@@ -1,25 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
+// imports of all the components
 import Header from '../Header/Header';
 import TopStrains from './TopStrains';
 import SavedStrains from './SavedStrains';
 import SleepyStrains from './SleepyStrains';
+
+import { getStrainsDataFromActions } from '../../store/actions/index';
+import serverData from '../../utils/serverData';
+import PainKillerStrains from './PainKillerStrains';
+
 // Renders the link to '/home'
-const HomePage = () => {
+const HomePage = (props) => {
+    useEffect(() => {
+        props.getStrainsDataFromActions();
+    }, [props]);
+    console.log('TopStrains props', props);
+    // console.log(props.serverData);
     return (
         <div>
-            <link
-                rel="stylesheet"
-                href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"
-            ></link>
             {/* Header */}
             <Header />
             {/* What will be the app tiles that carousel */}
-            <TopStrains />
+            <TopStrains props={serverData} />
             <SavedStrains />
-            <SleepyStrains />
+            <SleepyStrains props={serverData} />
+            <PainKillerStrains props={serverData} />
         </div>
     );
 };
 
-export default HomePage;
+//  MAP STATE TO PROPS DID NOT WORK BUT I LEFT IT IN TO DISPLAY THAT THE SERVER INFO WAS RETREIVED AND SET TO STATE IN A STORE LIKE MANNER
+
+const mapStateToProps = (state) => {
+    // console.log(
+    //     'mapStateToProps state: ',
+    //     state.FetchingStrainsReducer.strains
+    // );
+    return { serverData: state.FetchingStrainsReducer.strains };
+};
+export default connect(mapStateToProps, { getStrainsDataFromActions })(
+    HomePage
+);
