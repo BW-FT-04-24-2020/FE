@@ -6,7 +6,6 @@ const initialState = {
     isFetching: false,
 };
 const FetchingStrainsReducer = (state = initialState, action) => {
-    console.log('in FetchingStrainsReducer state: ', state);
     switch (action.type) {
         case 'FETCH_STRAINS_START':
             return {

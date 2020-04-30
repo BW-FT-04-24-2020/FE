@@ -8,15 +8,21 @@ export const getStrainsDataFromActions = () => {
         dispatch({
             type: 'FETCH_STRAINS_START',
         });
-        axios
+        authenticAxios()
             .get('https://medcabinet-strain-api.herokuapp.com/strains/all')
             .then((res) => {
                 console.log('res of axios.get: ', res.data);
-                dispatch({ type: 'FETCH_STRAINS_SUCCESS' }); // UPDATE PAYLOAD////////
+                dispatch({
+                    type: 'FETCH_STRAINS_SUCCESS',
+                    payload: res.data,
+                }); // UPDATE PAYLOAD////////
             })
             .catch((err) => {
                 console.log('error', err);
-                dispatch({ type: 'FETCH_STRAINS_FAILURE' });
+                dispatch({
+                    type: 'FETCH_STRAINS_FAILURE',
+                    payload: err.data,
+                });
             });
     };
 };

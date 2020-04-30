@@ -7,11 +7,12 @@ import { getStrainsDataFromActions } from '../../store/actions/index';
 
 // Top Strains that connects to HomePage.js
 const TopStrains = (props) => {
-    React.useEffect(() => {
+    useEffect(() => {
         props.getStrainsDataFromActions();
     }, []);
 
     console.log('TopStrains props', props);
+
     return (
         <CardSection>
             <h2>Top Strains</h2>
@@ -42,8 +43,11 @@ const TopStrains = (props) => {
     );
 };
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps state: ', state);
-    return {};
+    console.log(
+        'mapStateToProps state: ',
+        state.FetchingStrainsReducer.strains
+    );
+    return { info: state.FetchingStrainsReducer.strains };
 };
 export default connect(mapStateToProps, { getStrainsDataFromActions })(
     TopStrains
