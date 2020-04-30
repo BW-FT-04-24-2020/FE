@@ -8,6 +8,7 @@ import SavedStrains from './SavedStrains';
 import SleepyStrains from './SleepyStrains';
 
 import { getStrainsDataFromActions } from '../../store/actions/index';
+import serverData from '../../utils/serverData';
 
 // Renders the link to '/home'
 const HomePage = (props) => {
@@ -16,7 +17,7 @@ const HomePage = (props) => {
     }, []);
 
     console.log('TopStrains props', props);
-    console.log(props.info);
+    console.log(props.serverData);
 
     return (
         <div>
@@ -24,7 +25,7 @@ const HomePage = (props) => {
             <Header />
             {/* What will be the app tiles that carousel */}
 
-            <TopStrains props={props.serverData} />
+            <TopStrains props={serverData} />
             <SavedStrains />
             <SleepyStrains />
         </div>

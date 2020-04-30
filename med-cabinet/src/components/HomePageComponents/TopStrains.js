@@ -6,8 +6,7 @@ import { settings, CardDiv, CardSection } from './Settings';
 // Top Strains that connects to HomePage.js
 const TopStrains = (props) => {
     console.log(props);
-    const strainsInfo = props;
-    console.log(strainsInfo);
+
     return (
         <CardSection>
             <h2>Top Strains</h2>
