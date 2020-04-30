@@ -15,7 +15,7 @@ import PainKillerStrains from './PainKillerStrains';
 const HomePage = (props) => {
     useEffect(() => {
         props.getStrainsDataFromActions();
-    }, [props]);
+    }, []);
     console.log('HomePage props', props);
     // console.log(props.serverData);
     return (
@@ -23,7 +23,7 @@ const HomePage = (props) => {
             {/* Header */}
             <Header />
             {/* What will be the app tiles that carousel */}
-            <TopStrains props={props.serverData} />
+            <TopStrains props={props} />
             <SavedStrains />
             <SleepyStrains props={serverData} />
             <PainKillerStrains props={serverData} />
@@ -38,7 +38,9 @@ const mapStateToProps = (state) => {
     //     'mapStateToProps state: ',
     //     state.FetchingStrainsReducer.strains
     // );
-    return { serverData: state.FetchingStrainsReducer.strains };
+    return {
+        serverData: state.FetchingStrainsReducer.strains,
+    };
 };
 export default connect(mapStateToProps, { getStrainsDataFromActions })(
     HomePage
