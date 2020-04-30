@@ -4,16 +4,11 @@ import axios from 'axios'
 import * as yup from 'yup';
 
 //set up the form schema
-const loginSchema = yup.object().shape({
-    name: yup.string().min(2).required("Please Enter a Name Longer Than 2 Characters."),
-    email: yup.string().email().required("Please Enter A Valid Email"),
-    password: yup.string().min(6).required('Please Enter A Password Of 6 Characters Or More')
-})
 
 const signSchema = yup.object().shape({
-    name: yup.string().min(2).required("Please Enter a Name Longer Than 2 Characters."),
-    email: yup.string().email().required("Please Enter A Valid Email"),
-    password: yup.string().min(6).required('Please Enter A Password Of 6 Characters Or More')
+    name: yup.string().min(2).required('Please Enter a Name Longer Than 2 Characters'),
+    email: yup.string().required('Please Enter A Valid Email'),
+    password: yup.string().min(4).required('Please Enter A Password Of 4 Characters Or More')
 })
 const Login = () => {
 
@@ -41,6 +36,9 @@ const Login = () => {
 
     })
 
+    //button state
+    const [addDisabled, setAddDisabled] = useState(true)
+
     const { push } = useHistory();
 
 
@@ -54,10 +52,10 @@ const Login = () => {
 
         })
 
-        validateLoginChange(event)
+
     }
 
-    const [addDisabled, setAddDisabled] = useState(true)
+    
 
     //handles changes on sign up form
     const handleSignChange = event => {
@@ -87,14 +85,14 @@ const Login = () => {
                     password: '',
                 }
                 )
-                
+
 
             })
             .catch(err => console.log('Login Error:', err))
-        
+
 
     }
-
+ 
     //handles sign up request
     const handleSignUp = event => {
         event.preventDefault();
@@ -114,32 +112,20 @@ const Login = () => {
             .catch(err => console.log('Sign Up Error:', err))
     }
 
-    const validateLoginChange = event => {
-        yup.reach(loginSchema, event.target.name)
-            .validate(event.target.type === event.target.value)
-            .then(valid => {
-                setError({
-                    ...error,
-                    [event.target.name]: ""
-                });
-            })
-            .catch(err => {
-                console.log(err)
-                setError({
-                    ...error,
-                    [event.target.name]: err.errors[0]
-                })
-            })
-    }
 
+    //actually validates
     const validateSignChange = event => {
         yup.reach(signSchema, event.target.name)
             .validate(event.target.type === event.target.value)
             .then(valid => {
+                
                 setError({
+                
                     ...error,
                     [event.target.name]: ""
+                   
                 });
+                console.log(error)
             })
             .catch(err => {
                 console.log(err)
@@ -150,16 +136,14 @@ const Login = () => {
             })
     }
 
-    useEffect(() => {
-        loginSchema.isValid(user).then(valid => {
-            setAddDisabled(!valid);
-        })
-    }, [user]);
 
+    //checks validity
     useEffect(() => {
         signSchema.isValid(newUser).then(valid => {
             setAddDisabled(!valid);
+            console.log(valid)
         })
+        
     }, [newUser]);
 
     return (
@@ -182,7 +166,6 @@ const Login = () => {
                         />
                         <br />
 
-                        {error.email.length > 0 ? <p>{error.email}</p> : null}
 
                         <label htmlFor='password' name='password' >Password*</label>
                         <br />
@@ -194,9 +177,8 @@ const Login = () => {
                         />
                         <br />
 
-                        {error.password.length > 0 ? <p>{error.password}</p> : null}
 
-                        <button disabled={addDisabled}>Login</button>
+                        <button>Login</button>
 
                     </form>
                 </div>
