@@ -16,6 +16,10 @@ const handleChanges = (e) => {
     })
 } 
 
+const postChanges = () => {
+    
+}
+
 return (
     <div>
         
@@ -23,3 +27,6 @@ return (
 )
 
 } 
+
+
+export default CommentBox;

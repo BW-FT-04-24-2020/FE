@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
 
 // setting up state for the api data ill be getting back
 const initialState = [
@@ -13,6 +14,13 @@ const initialState = [
 const Card = () => {
     const [cardData, setCardData] = useState(initialState);
 
+    cardData = data =>{ 
+
+    axios 
+    .put(`https://medcabinet-strain-api.herokuapp.com/strains/all`)
+    .then(response => console.log(response))
+    .catch(err => console.log(err));
+    }
     return (
         <div>
             {
