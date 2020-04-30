@@ -56,3 +56,10 @@ export const settings = {
     initialSlide: 1,
     slidesToShow: 5,
 };
+
+// Function to get a capital first letter.
+export function capitalizeFirstLetter(string) {
+    if (typeof string == undefined) return;
+    var firstLetter = string[0] || string.charAt(0);
+    return firstLetter ? string.replace(/^./, firstLetter.toUpperCase()) : '';
+}

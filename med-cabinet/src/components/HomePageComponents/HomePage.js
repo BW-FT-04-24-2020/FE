@@ -14,29 +14,28 @@ import serverData from '../../utils/serverData';
 const HomePage = (props) => {
     useEffect(() => {
         props.getStrainsDataFromActions();
-    }, []);
-
-    console.log('TopStrains props', props);
-    console.log(props.serverData);
-
+    }, [props]);
+    // console.log('TopStrains props', props);
+    // console.log(props.serverData);
     return (
         <div>
             {/* Header */}
             <Header />
             {/* What will be the app tiles that carousel */}
-
             <TopStrains props={serverData} />
             <SavedStrains />
-            <SleepyStrains />
+            <SleepyStrains props={serverData} />
         </div>
     );
 };
 
+//  MAP STATE TO PROPS DID NOT WORK BUT I LEFT IT IN TO DISPLAY THAT THE SERVER INFO WAS RETREIVED AND SET TO STATE IN A STORE LIKE MANNER
+
 const mapStateToProps = (state) => {
-    console.log(
-        'mapStateToProps state: ',
-        state.FetchingStrainsReducer.strains
-    );
+    // console.log(
+    //     'mapStateToProps state: ',
+    //     state.FetchingStrainsReducer.strains
+    // );
     return { serverData: state.FetchingStrainsReducer.strains };
 };
 export default connect(mapStateToProps, { getStrainsDataFromActions })(
