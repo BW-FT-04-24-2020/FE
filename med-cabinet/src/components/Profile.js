@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios'
 import * as yup from 'yup';
 
@@ -10,6 +10,8 @@ const signSchema = yup.object().shape({
 })
 
 const Profile = () => {
+
+    const {push} = useHistory()
 
     //let's us grab the id
     const { id } = useParams();
@@ -99,6 +101,11 @@ const Profile = () => {
         
     }, [user]);
 
+    const handleLogOut = () => {
+        localStorage.removeItem('token')
+        push('/')
+    }
+
 
     return (
         <div className='edit'>
@@ -145,6 +152,7 @@ const Profile = () => {
 
                 <button disabled={disabled}>Submit</button>
             </form>
+            <button onClick= {handleLogOut()}>Log Out</button>
         </div>)
 }
 

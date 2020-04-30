@@ -88,7 +88,10 @@ const Login = () => {
 
 
             })
-            .catch(err => console.log('Login Error:', err))
+            .catch(err =>{
+                console.log('Login Error:', err)
+                alert('Invalid Username and/or Password')
+            } )
 
 
     }
@@ -109,7 +112,9 @@ const Login = () => {
                 )
                 push('/')
             })
-            .catch(err => console.log('Sign Up Error:', err))
+            .catch(err => {
+                alert('Sign Up Failed Sorry!')
+                console.log('Sign Up Error:', err)})
     }
 
 
