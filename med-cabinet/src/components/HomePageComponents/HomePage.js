@@ -16,14 +16,14 @@ const HomePage = (props) => {
     useEffect(() => {
         props.getStrainsDataFromActions();
     }, [props]);
-    console.log('TopStrains props', props);
+    console.log('HomePage props', props);
     // console.log(props.serverData);
     return (
         <div>
             {/* Header */}
             <Header />
             {/* What will be the app tiles that carousel */}
-            <TopStrains props={serverData} />
+            <TopStrains props={props.serverData} />
             <SavedStrains />
             <SleepyStrains props={serverData} />
             <PainKillerStrains props={serverData} />
