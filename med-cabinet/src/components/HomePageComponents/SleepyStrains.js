@@ -11,11 +11,35 @@ import Slider from 'infinite-react-carousel';
 // SleepyStrains that connects to HomePage.js
 const SleepyStrains = (props) => {
     console.log(props.props);
-
+    {
+    }
     return (
         <CardSection>
             <h2>Strains To Help You Sleep</h2>
             <Slider {...settings}>
+                {props.props.map((value) => {
+                    if (value.medical !== null) {
+                        // console.log(value);
+                        // console.log(value.medical.includes('Insomnia'));
+                        if (value.medical.includes('Insomnia')) {
+                            return (
+                                <CardDiv key={value.id}>
+                                    <h3>{value.name}</h3>
+                                    <p>{capitalizeFirstLetter(value.race)}</p>
+                                    <h5>{value.medical}</h5>
+                                    <p>{value.description}</p>
+                                    <ul>Positive: {value.positive}</ul>
+                                    <ul>Negative: {value.negative}</ul>
+                                    <button>Add to Favorites</button>
+                                </CardDiv>
+                            );
+                        }
+                    }
+                    // var string = value.medical;
+                    // console.log(string);
+                    // const insomnia = 'insomnia';
+                    // console.log(string.includes(insomnia));
+                })}
                 <div></div>
             </Slider>
         </CardSection>
