@@ -6,7 +6,13 @@ import { settings, CardDiv, CardSection } from './Settings';
 // Top Strains that connects to HomePage.js
 const TopStrains = (props) => {
     console.log(props.props);
-
+    function capitalizeFirstLetter(string) {
+        if (typeof string == undefined) return;
+        var firstLetter = string[0] || string.charAt(0);
+        return firstLetter
+            ? string.replace(/^./, firstLetter.toUpperCase())
+            : '';
+    }
     return (
         <CardSection>
             <h2>Top Strains</h2>
@@ -17,7 +23,7 @@ const TopStrains = (props) => {
                         return (
                             <CardDiv>
                                 <h3>{value.name}</h3>
-                                <p>{value.race}</p>
+                                <p>{capitalizeFirstLetter(value.race)}</p>
                                 <h5>{value.medical}</h5>
                                 <p>{value.description}</p>
                                 <ul>Positive: {value.positive}</ul>
