@@ -26,23 +26,16 @@ export const initialState = [
     },
 ];
 
-export const emptyState = {
-    id: '',
-    name: '',
-    race: '',
-    flavors: '',
-    positive: '',
-    negative: '',
-    medical: '',
-    rating: 4.2,
-    description: '',
-};
-
 // Styled-Components that will be displayed across all the carousels
 export const CardDiv = styled('div')`
     border: 1px solid black;
     margin: 5% 0;
     padding: 0;
+    height: 45vh;
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 2fr 0.5fr 0.5fr 0.5fr;
+    align-items: space-evenly;
+    justify-content: space-evenly;
 `;
 export const CardSection = styled('section')`
     margin: 1% 0 3%;
