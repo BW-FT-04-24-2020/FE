@@ -56,6 +56,18 @@ const Profile = () => {
         .catch(err => console.log('PUT ERROR:', err))
     }
 
+
+    //Handles delete
+
+    const handleDelete = event =>{
+        event.preventDefault()
+
+        axios
+        .delete(`https://medcab1.herokuapp.com/api/user/1`)
+        .then(res => console.log(res))
+        .catch(err => console.log('PUT ERROR:', err))
+    }
+
     //Handles Form Changes
     const handleChange = event => {
         event.persist()
