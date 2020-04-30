@@ -8,8 +8,8 @@ import {
 
 import Slider from 'infinite-react-carousel';
 
-// SleepyStrains that connects to HomePage.js
-const SleepyStrains = (props) => {
+// PainKillerStrains that connects to HomePage.js
+const PainKillerStrains = (props) => {
     console.log(props.props);
 
     props.props.map((value) => {
@@ -18,14 +18,16 @@ const SleepyStrains = (props) => {
 
     return (
         <CardSection>
-            <h2>Strains To Help You Sleep</h2>
+            <h2>Ease The Pain Away With These Strains</h2>
             <Slider {...settings}>
                 {props.props.map((value) => {
                     if (value.medical !== null) {
                         if (value.negative !== null) {
                             if (
-                                value.medical.includes('Insomnia') &&
-                                value.rating === 4.8
+                                value.medical.includes('Pain') &&
+                                value.medical.includes('Fatigue') &&
+                                value.medical.includes('Headaches') &&
+                                value.description !== null
                             ) {
                                 return (
                                     <CardDiv key={value.id}>
@@ -48,4 +50,4 @@ const SleepyStrains = (props) => {
         </CardSection>
     );
 };
-export default SleepyStrains;
+export default PainKillerStrains;

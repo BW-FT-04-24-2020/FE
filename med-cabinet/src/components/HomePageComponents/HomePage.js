@@ -9,13 +9,14 @@ import SleepyStrains from './SleepyStrains';
 
 import { getStrainsDataFromActions } from '../../store/actions/index';
 import serverData from '../../utils/serverData';
+import PainKillerStrains from './PainKillerStrains';
 
 // Renders the link to '/home'
 const HomePage = (props) => {
     useEffect(() => {
         props.getStrainsDataFromActions();
     }, [props]);
-    // console.log('TopStrains props', props);
+    console.log('TopStrains props', props);
     // console.log(props.serverData);
     return (
         <div>
@@ -25,6 +26,7 @@ const HomePage = (props) => {
             <TopStrains props={serverData} />
             <SavedStrains />
             <SleepyStrains props={serverData} />
+            <PainKillerStrains props={serverData} />
         </div>
     );
 };
