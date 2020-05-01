@@ -8,7 +8,6 @@ import SavedStrains from './SavedStrains';
 import SleepyStrains from './SleepyStrains';
 
 import { getStrainsDataFromActions } from '../../store/actions/index';
-import serverData from '../../utils/serverData';
 import PainKillerStrains from './PainKillerStrains';
 
 // Renders the link to '/home'
