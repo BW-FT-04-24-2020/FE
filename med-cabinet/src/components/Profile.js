@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
-import axios from 'axios'
+import {axiosWithAuth} from '../utils/axiosWithAuthUser'
 import * as yup from 'yup';
 
 const signSchema = yup.object().shape({
@@ -9,7 +9,9 @@ const signSchema = yup.object().shape({
     password: yup.string().min(6, 'Please Enter A Password Of 6 Characters Or More').required('Please Enter A Password Of 6 Characters Or More')
 })
 
-const Profile = () => {
+const Profile = (props) => {
+
+    
 
     const {push} = useHistory()
 
@@ -37,21 +39,20 @@ const Profile = () => {
     console.log(id)
 
     useEffect(() => {
-        axios
-        .get(`https://medcab1.herokuapp.com/api/user/1`)
+        axiosWithAuth()
+        .get(`/api/user/${id}`)
         .then(res => console.log('USER GET:', res))
         .catch(err => console.log('USER GET ERROR:',err))
     }, [id])
 
-    
 
-    //handles submit
+   // handles submit
 
-    const handleSubmit = event =>{
+    const handleSubmit = event =>  { 
         event.preventDefault()
 
-        axios
-        .put(`https://medcab1.herokuapp.com/api/user/1`, user)
+        axiosWithAuth()
+        .put(`/api/user/${id}`, user)
         .then(res => console.log(res))
         .catch(err => console.log('PUT ERROR:', err))
     }
@@ -62,8 +63,8 @@ const Profile = () => {
     const handleDelete = event =>{
         event.preventDefault()
 
-        axios
-        .delete(`https://medcab1.herokuapp.com/api/user/1`)
+        axiosWithAuth()
+        .delete(`/api/user/${id}`)
         .then(res => console.log(res))
         .catch(err => console.log('PUT ERROR:', err))
     }
@@ -164,7 +165,8 @@ const Profile = () => {
 
                 <button disabled={disabled}>Submit</button>
             </form>
-            <button onClick= {handleLogOut()}>Log Out</button>
+            <button onClick= {handleDelete}>Delete Profile</button>
+            <button onClick= {() => handleLogOut()}>Log Out</button>
         </div>)
 }
 
