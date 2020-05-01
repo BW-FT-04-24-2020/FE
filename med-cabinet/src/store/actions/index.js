@@ -8,7 +8,7 @@ export const getStrainsDataFromActions = () => {
         dispatch({
             type: 'FETCH_STRAINS_START',
         });
-        authenticAxios()
+        axios
             .get('https://medcabinet-strain-api.herokuapp.com/strains/all')
             .then((res) => {
                 // console.log('res of axios.get: ', res.data);

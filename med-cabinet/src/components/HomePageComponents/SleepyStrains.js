@@ -10,9 +10,9 @@ import Slider from 'infinite-react-carousel';
 
 // SleepyStrains that connects to HomePage.js
 const SleepyStrains = (props) => {
-    console.log(props.props);
+    console.log(props.strainsList);
 
-    props.props.map((value) => {
+    props.strainsList.map((value) => {
         console.log();
     });
 
@@ -20,7 +20,7 @@ const SleepyStrains = (props) => {
         <CardSection>
             <h2>Strains To Help You Sleep</h2>
             <Slider {...settings}>
-                {props.props.map((value) => {
+                {props.strainsList.map((value) => {
                     if (value.medical !== null) {
                         if (value.negative !== null) {
                             if (

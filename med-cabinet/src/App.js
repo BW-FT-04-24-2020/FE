@@ -14,21 +14,23 @@ import thunk from 'redux-thunk';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-function App() {
-    return (
-        <div className="App">
-            <Provider store={store}>
-                <Switch>
-                    <Route exact path="/home">
-                        <HomePage />
-                    </Route>
-                    <Route exact path="/">
-                        <Login />
-                    </Route>
-                </Switch>
-            </Provider>
-        </div>
-    );
+class App extends React.Component {
+    render() {
+        return (
+            <div className="App">
+                <Provider store={store}>
+                    <Switch>
+                        <Route exact path="/home">
+                            <HomePage />
+                        </Route>
+                        <Route exact path="/">
+                            <Login />
+                        </Route>
+                    </Switch>
+                </Provider>
+            </div>
+        );
+    }
 }
 
 export default App;

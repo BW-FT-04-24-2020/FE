@@ -13,35 +13,19 @@ import PainKillerStrains from './PainKillerStrains';
 
 // Renders the link to '/home'
 const HomePage = (props) => {
-    useEffect(() => {
-        props.getStrainsDataFromActions();
-    }, []);
-    console.log('HomePage props', props);
-    // console.log(props.serverData);
     return (
         <div>
             {/* Header */}
             <Header />
             {/* What will be the app tiles that carousel */}
-            <TopStrains props={props} />
-            <SavedStrains />
-            <SleepyStrains props={serverData} />
-            <PainKillerStrains props={serverData} />
+            <TopStrains strainsList={props} />
+            {/* <SavedStrains /> */}
+            {/* <SleepyStrains strainsList={serverData} />
+            <PainKillerStrains strainsList={serverData} /> */}
         </div>
     );
 };
 
 //  MAP STATE TO PROPS DID NOT WORK BUT I LEFT IT IN TO DISPLAY THAT THE SERVER INFO WAS RETREIVED AND SET TO STATE IN A STORE LIKE MANNER
 
-const mapStateToProps = (state) => {
-    // console.log(
-    //     'mapStateToProps state: ',
-    //     state.FetchingStrainsReducer.strains
-    // );
-    return {
-        serverData: state.FetchingStrainsReducer.strains,
-    };
-};
-export default connect(mapStateToProps, { getStrainsDataFromActions })(
-    HomePage
-);
+export default HomePage;

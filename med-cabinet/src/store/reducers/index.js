@@ -31,5 +31,5 @@ const FetchingStrainsReducer = (state = initialState, action) => {
     }
 };
 export const rootReducer = combineReducers({
-    FetchingStrainsReducer: FetchingStrainsReducer,
+    info: FetchingStrainsReducer,
 });

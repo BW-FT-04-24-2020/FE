@@ -10,17 +10,13 @@ import Slider from 'infinite-react-carousel';
 
 // PainKillerStrains that connects to HomePage.js
 const PainKillerStrains = (props) => {
-    console.log(props.props);
-
-    props.props.map((value) => {
-        console.log();
-    });
+    console.log('painkiller: ', props.strainsList);
 
     return (
         <CardSection>
             <h2>Ease The Pain Away With These Strains</h2>
             <Slider {...settings}>
-                {props.props.map((value) => {
+                {props.strainsList.map((value) => {
                     if (value.medical !== null) {
                         if (value.negative !== null) {
                             if (

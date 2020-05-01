@@ -16,7 +16,7 @@ export default function Header() {
         h2 {
             color: black;
             text-decoration: none;
-            font-size: 3rem;
+            font-size: 2rem;
             margin: 0;
         }
     `;
@@ -27,7 +27,7 @@ export default function Header() {
             {/* Links to different parts of the website on the navigation. */}
             <ul>
                 <Link to="/home">
-                    <h2>MedCabinet</h2>
+                    <h2>Cannabis Cabinet</h2>
                 </Link>
             </ul>
             {/* SearchBar component for the Headers */}
