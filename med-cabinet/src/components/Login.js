@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
-import axios from 'axios'
+import {axiosWithAuth} from '../utils/axiosWithAuthUser'
 import * as yup from 'yup';
 
 //set up the form schema
@@ -72,8 +72,8 @@ const Login = () => {
     //handles login request
     const handleLogin = event => {
         event.preventDefault();
-        axios
-            .post('https://medcab1.herokuapp.com/api/auth/login', user)
+        axiosWithAuth()
+            .post('/api/auth/login', user)
             .then(res => {
                 localStorage.setItem('token', JSON.stringify(res.data.token))
                 push('/home')
@@ -99,8 +99,8 @@ const Login = () => {
     //handles sign up request
     const handleSignUp = event => {
         event.preventDefault();
-        axios
-            .post('https://medcab1.herokuapp.com/api/auth/register', newUser)
+        axiosWithAuth()
+            .post('/api/auth/register', newUser)
             .then(res => {
                 console.log(res)
                 alert('Sign Up Sucsessful!')
