@@ -66,7 +66,7 @@ const Profile = (props) => {
         axiosWithAuth()
         .delete(`/api/user/${id}`)
         .then(res => console.log(res))
-        .catch(err => console.log('PUT ERROR:', err))
+        .catch(err => console.log('DELETE ERROR:', err))
     }
 
     //Handles Form Changes
@@ -114,8 +114,10 @@ const Profile = (props) => {
         
     }, [user]);
 
+    //logs out
     const handleLogOut = () => {
         localStorage.removeItem('token')
+        push('/home')
         push('/')
     }
 

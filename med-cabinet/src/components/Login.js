@@ -154,7 +154,7 @@ const Login = () => {
 
     return (
         <>
-            <h1>MedCabinet</h1>
+            <h1>Cannabas Cabinet</h1>
 
             <div className='credDiv'>
 
