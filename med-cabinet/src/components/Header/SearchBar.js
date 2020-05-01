@@ -1,7 +1,8 @@
 import React from 'react';
-
+import SearchResults from '../SearchResults';
 import { authenticAxios } from '../../utils/authenticAxios';
-import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { BrowserRouter as Route, Switch } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -52,6 +53,7 @@ class SearchBar extends React.Component {
                 this.setState({
                     search: JSON.parse(res.data),
                 });
+                window.location = '/SearchResults';
             })
             .catch((err) => {
                 console.log(err);
@@ -59,6 +61,8 @@ class SearchBar extends React.Component {
     };
 
     render() {
+        console.log(this.state.search);
+
         return (
             // Search bar form with button
             <>
@@ -80,4 +84,10 @@ class SearchBar extends React.Component {
     }
 }
 
-export default SearchBar;
+const mapStateToProps = (state) => {
+    console.log('mapStateToProps in search: ', state);
+    return {
+        search: state.search,
+    };
+};
+export default connect(mapStateToProps, {})(SearchBar);
