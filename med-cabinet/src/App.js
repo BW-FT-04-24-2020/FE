@@ -6,6 +6,7 @@ import { BrowserRouter as Route, Switch } from 'react-router-dom';
 
 import HomePage from './components/HomePageComponents/HomePage';
 import Login from './components/Login';
+import SearchResults from './components/SearchResults';
 
 import { createStore, applyMiddleware } from 'redux';
 import { rootReducer } from './store/reducers';

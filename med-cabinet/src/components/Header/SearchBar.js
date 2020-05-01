@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { authenticAxios } from '../../utils/authenticAxios';
+import { useHistory } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -48,6 +49,9 @@ class SearchBar extends React.Component {
             ) //UPDATE ME WITH NEW POST LINK//////////
             .then((res) => {
                 console.log(res);
+                this.setState({
+                    search: JSON.parse(res.data),
+                });
             })
             .catch((err) => {
                 console.log(err);
