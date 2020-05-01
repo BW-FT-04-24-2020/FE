@@ -15,6 +15,7 @@ import thunk from 'redux-thunk';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
+console.log('rooooottt', store);
 class App extends React.Component {
     render() {
         return (
