@@ -1,28 +1,51 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { authenticAxios } from '../../utils/authenticAxios';
 
 import styled from 'styled-components';
 
-const SearchBar = () => {
+//  Styled-Components
+const Search = styled('form')`
+    input {
+        width: 30vw;
+
+        margin-top: 3%;
+    }
+`;
+const SearchContainer = styled('div')`
+    width: 50vw;
+    padding: 3%;
+    button {
+        margin: 2%;
+    }
+`;
+
+class SearchBar extends React.Component {
     // Empty initial state for the search bar
-    const [search, setSearch] = useState({
-        searchString: '',
-    });
+    state = {
+        search: {
+            searchBar: '',
+        },
+    };
 
     // Function to handle the search bar
-    const handleChanges = (e) => {
-        setSearch({
-            ...search,
-            [e.target.name]: e.target.value,
+    handleChanges = (e) => {
+        // e.preventDefault();
+        this.setState({
+            search: {
+                ...this.state.search,
+                [e.target.name]: e.target.value,
+            },
         });
     };
 
     //Add a Submit search bar (onSubmit)
-    const submitSearch = (e) => {
+    submitSearch = (e) => {
         e.preventDefault();
         authenticAxios()
-            .post('/', search) //UPDATE ME WITH NEW POST LINK//////////
+            .get(
+                `https://medcabinet-strain-api.herokuapp.com/strains/query/${this.state.search}`
+            ) //UPDATE ME WITH NEW POST LINK//////////
             .then((res) => {
                 console.log(res);
             })
@@ -31,40 +54,26 @@ const SearchBar = () => {
             });
     };
 
-    //  Styled-Components
-    const Search = styled('form')`
-        input {
-            width: 30vw;
-
-            margin-top: 3%;
-        }
-    `;
-    const SearchContainer = styled('div')`
-        width: 50vw;
-        padding: 3%;
-        button {
-            margin: 2%;
-        }
-    `;
-
-    return (
-        // Search bar form with button
-        <>
-            <SearchContainer>
-                <Search>
-                    <input
-                        type="text"
-                        name="searchBar"
-                        value={search.searchString}
-                        onChange={handleChanges}
-                        placeholder="Search Strains, Effects, or Ailments"
-                    />
-                    <button>Search</button>
-                </Search>
-                {/* <AdvancedSearch /> */}
-            </SearchContainer>
-        </>
-    );
-};
+    render() {
+        return (
+            // Search bar form with button
+            <>
+                <SearchContainer>
+                    <Search onSubmit={this.submitSearch}>
+                        <input
+                            type="text"
+                            name="searchBar"
+                            value={this.state.search.searchBar}
+                            onChange={this.handleChanges}
+                            placeholder="Search Strains, Effects, or Ailments"
+                        />
+                        <button>Search</button>
+                    </Search>
+                    {/* <AdvancedSearch /> */}
+                </SearchContainer>
+            </>
+        );
+    }
+}
 
 export default SearchBar;

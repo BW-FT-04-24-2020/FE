@@ -15,7 +15,7 @@ const TopStrains = (props) => {
         props.getStrainsDataFromActions();
     }, []);
 
-    console.log('TopStrains', props);
+    // console.log('TopStrains', props);
 
     return (
         <CardSection>
@@ -58,7 +58,7 @@ const TopStrains = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps state: ', state);
+    // console.log('mapStateToProps state: ', state);
     return {
         error: state.info.error,
         isFetching: state.info.isFetching,
