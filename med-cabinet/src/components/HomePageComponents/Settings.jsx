@@ -31,15 +31,29 @@ export const CardDiv = styled('div')`
     border: 1px solid black;
     margin: 5% 0;
     padding: 0;
-    height: 45vh;
+    height: auto;
     display: grid;
     grid-template-rows: 0.5fr 0.5fr 0.5fr 2fr 0.5fr 0.5fr 0.5fr;
     align-items: space-evenly;
     justify-content: space-evenly;
+    p {
+        font-size: 10px;
+    }
+    ul {
+        font-size: 10px;
+    }
+    button {
+        font-size: 11px;
+    }
 `;
 export const CardSection = styled('section')`
     margin: 1% 0 3%;
     padding: 1%;
+    section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 1%;
+    }
 `;
 
 // Settings for the Carousels
@@ -53,7 +67,7 @@ export const settings = {
     centerMode: false,
     dots: true,
     duration: 300,
-    initialSlide: 1,
+    initialSlide: 3,
     slidesToShow: 5,
 };
 

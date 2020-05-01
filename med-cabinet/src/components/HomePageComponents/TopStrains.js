@@ -1,23 +1,36 @@
-import React from 'react';
-import Slider from 'infinite-react-carousel';
-
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner';
+import { getStrainsDataFromActions } from '../../store/actions';
 import {
     settings,
     CardDiv,
     CardSection,
     capitalizeFirstLetter,
 } from './Settings';
+import Slider from 'infinite-react-carousel';
 
-// Top Strains that connects to HomePage.js
 const TopStrains = (props) => {
-    // console.log(props.props);
+    useEffect(() => {
+        props.getStrainsDataFromActions();
+    }, []);
+
+    // console.log('TopStrains', props);
 
     return (
         <CardSection>
             <h2>Top Strains</h2>
-            {/* Component from infinite-react-carousel */}
-            <Slider {...settings}>
-                {props.props.map((value) => {
+            <section>
+                {props.isFetching && (
+                    <Loader
+                        type="Circles"
+                        color="#00BFFF"
+                        height={60}
+                        width={80}
+                    />
+                )}
+                {/* <Slider {...settings}> */}
+                {props.strains.map((value) => {
                     if (value.medical !== null) {
                         if (value.negative !== null) {
                             if (value.rating === 5) {
@@ -38,8 +51,20 @@ const TopStrains = (props) => {
                         }
                     }
                 })}
-            </Slider>
+            </section>
+            {/* </Slider> */}
         </CardSection>
     );
 };
-export default TopStrains;
+
+const mapStateToProps = (state) => {
+    // console.log('mapStateToProps state: ', state);
+    return {
+        error: state.info.error,
+        isFetching: state.info.isFetching,
+        strains: state.info.strains,
+    };
+};
+export default connect(mapStateToProps, { getStrainsDataFromActions })(
+    TopStrains
+);

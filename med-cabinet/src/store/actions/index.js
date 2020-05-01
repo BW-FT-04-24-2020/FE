@@ -1,4 +1,5 @@
 import { authenticAxios } from '../../utils/authenticAxios';
+import axios from 'axios';
 
 // Retrieving strains from the api
 export const getStrainsDataFromActions = () => {
@@ -6,13 +7,13 @@ export const getStrainsDataFromActions = () => {
         dispatch({
             type: 'FETCH_STRAINS_START',
         });
-        authenticAxios()
+        axios
             .get('https://medcabinet-strain-api.herokuapp.com/strains/all')
             .then((res) => {
                 // console.log('res of axios.get: ', res.data);
                 dispatch({
                     type: 'FETCH_STRAINS_SUCCESS',
-                    payload: res.data,
+                    payload: JSON.parse(res.data),
                 }); // UPDATE PAYLOAD////////
             })
             .catch((err) => {
@@ -23,4 +24,15 @@ export const getStrainsDataFromActions = () => {
                 });
             });
     };
+};
+
+export const getStrains = () => {
+    return axios
+        .get('https://medcabinet-strain-api.herokuapp.com/strains/all')
+        .then((res) => {
+            return res;
+        })
+        .catch((err) => {
+            return err, console.log(err);
+        });
 };

@@ -6,6 +6,7 @@ import { BrowserRouter as Route, Switch } from 'react-router-dom';
 
 import HomePage from './components/HomePageComponents/HomePage';
 import Login from './components/Login';
+import SearchResults from './components/SearchResults';
 
 import { createStore, applyMiddleware } from 'redux';
 import { rootReducer } from './store/reducers';
@@ -15,24 +16,32 @@ import Profile from './components/Profile';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-function App() {
-    return (
-        <div className="App">
-            <Provider store={store}>
-                <Switch>
-                    <Route exact path="/home">
-                        <HomePage />
-                    </Route>
-                    <Route exact path="/">
-                        <Login />
-                    </Route>
+
+class App extends React.Component {
+    render() {
+        return (
+            <div className="App">
+                <Provider store={store}>
+                    <Switch>
+                        <Route exact path="/home">
+                            <HomePage />
+                        </Route>
+                        <Route exact path="/">
+                            <Login />
+                        </Route>
+                        <Route path="/SearchResults">
+                            <SearchResults />
+                        </Route>
+                      
                     <Route path='/profile'>
                         <Profile/>
                     </Route>
-                </Switch>
-            </Provider>
-        </div>
-    );
+                    </Switch>
+                </Provider>
+            </div>
+        );
+    }
+
 }
 
 export default App;
