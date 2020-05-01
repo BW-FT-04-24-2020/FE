@@ -18,34 +18,44 @@ const PainKillerStrains = (props) => {
     return (
         <CardSection>
             <h2>Strains That Will Ease The Pain</h2>
-            {props.isFetching && (
-                <Loader type="Circles" color="#00BFFF" height={60} width={80} />
-            )}
-            {/* <Slider {...settings}> */}
-            {props.strains.map((value) => {
-                if (value.medical !== null) {
-                    if (value.negative !== null) {
-                        if (
-                            value.medical.includes('Pain') &&
-                            value.medical.includes('Fatigue') &&
-                            value.medical.includes('Headaches') &&
-                            value.description !== null
-                        ) {
-                            return (
-                                <CardDiv key={value.id}>
-                                    <h3>{value.name}</h3>
-                                    <p>{capitalizeFirstLetter(value.race)}</p>
-                                    <h5>{value.medical}</h5>
-                                    <p>{value.description}</p>
-                                    <ul>Positive: {value.positive}</ul>
-                                    <ul>Negative: {value.negative}</ul>
-                                    <button>Add to Favorites</button>
-                                </CardDiv>
-                            );
+            <section>
+                {props.isFetching && (
+                    <Loader
+                        type="Circles"
+                        color="#00BFFF"
+                        height={60}
+                        width={80}
+                    />
+                )}
+
+                {/* <Slider {...settings}> */}
+                {props.strains.map((value) => {
+                    if (value.medical !== null) {
+                        if (value.negative !== null) {
+                            if (
+                                value.medical.includes('Pain') &&
+                                value.medical.includes('Fatigue') &&
+                                value.medical.includes('Headaches') &&
+                                value.description !== null
+                            ) {
+                                return (
+                                    <CardDiv key={value.id}>
+                                        <h3>{value.name}</h3>
+                                        <p>
+                                            {capitalizeFirstLetter(value.race)}
+                                        </p>
+                                        <h5>{value.medical}</h5>
+                                        <p>{value.description}</p>
+                                        <ul>Positive: {value.positive}</ul>
+                                        <ul>Negative: {value.negative}</ul>
+                                        <button>Add to Favorites</button>
+                                    </CardDiv>
+                                );
+                            }
                         }
                     }
-                }
-            })}
+                })}
+            </section>
             {/* </Slider> */}
         </CardSection>
     );
