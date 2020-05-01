@@ -17,7 +17,7 @@ const HomePage = (props) => {
             <Header />
             {/* What will be the app tiles that carousel */}
             <TopStrains strainsList={props} />
-            <SavedStrains />
+            {/* <SavedStrains /> */}
             <SleepyStrains strainsList={props} />
             <PainKillerStrains strainsList={props} />
         </div>
