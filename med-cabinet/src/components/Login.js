@@ -6,9 +6,9 @@ import * as yup from 'yup';
 //set up the form schema
 
 const signSchema = yup.object().shape({
-    name: yup.string().min(2).required('Please Enter a Name Longer Than 2 Characters'),
-    email: yup.string().required('Please Enter A Valid Email'),
-    password: yup.string().min(4).required('Please Enter A Password Of 4 Characters Or More')
+    name: yup.string().min(2,'Please Enter a Name Longer Than 2 Characters' ).required('Please Enter a Name Longer Than 2 Characters'),
+    email: yup.string().email('Please Enter A Valid Email').required('Please Enter A Valid Email'),
+    password: yup.string().min(6, 'Please Enter A Password Of 6 Characters Or More').required('Please Enter A Password Of 6 Characters Or More')
 })
 const Login = () => {
 
@@ -88,7 +88,10 @@ const Login = () => {
 
 
             })
-            .catch(err => console.log('Login Error:', err))
+            .catch(err =>{
+                console.log('Login Error:', err)
+                alert('Invalid Username and/or Password')
+            } )
 
 
     }
@@ -109,14 +112,17 @@ const Login = () => {
                 )
                 push('/')
             })
-            .catch(err => console.log('Sign Up Error:', err))
+            .catch(err => {
+                alert('Sign Up Failed Sorry!')
+                console.log('Sign Up Error:', err)})
     }
 
 
     //actually validates
+    //DON'T REMOVE CHECKBOX FROM VALIDATION IT BREAKS IT
     const validateSignChange = event => {
         yup.reach(signSchema, event.target.name)
-            .validate(event.target.type === event.target.value)
+            .validate(event.target.type === "checkbox" ? event.target.checked : event.target.value)
             .then(valid => {
                 
                 setError({
@@ -128,7 +134,7 @@ const Login = () => {
                 console.log(error)
             })
             .catch(err => {
-                console.log(err)
+                console.log("VALIDATE",err)
                 setError({
                     ...error,
                     [event.target.name]: err.errors[0]
