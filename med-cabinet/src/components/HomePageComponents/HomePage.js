@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
 
 // imports of all the components
 import Header from '../Header/Header';
