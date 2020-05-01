@@ -12,6 +12,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { rootReducer } from './store/reducers';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import Profile from './components/Profile';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -30,6 +31,10 @@ class App extends React.Component {
                         </Route>
                         <Route path="/SearchResults">
                             <SearchResults />
+                        </Route>
+
+                        <Route path="/profile">
+                            <Profile />
                         </Route>
                     </Switch>
                 </Provider>

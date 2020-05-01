@@ -2,7 +2,6 @@ import { authenticAxios } from '../../utils/authenticAxios';
 import axios from 'axios';
 
 // Retrieving strains from the api
-
 export const getStrainsDataFromActions = () => {
     return (dispatch) => {
         dispatch({
