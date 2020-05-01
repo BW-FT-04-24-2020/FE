@@ -38,7 +38,7 @@ const Profile = () => {
 
     useEffect(() => {
         axios
-        .get(`https://medcab1.herokuapp.com/api/user/1`)
+        .get(`https://medcab1.herokuapp.com/api/user/2`)
         .then(res => console.log('USER GET:', res))
         .catch(err => console.log('USER GET ERROR:',err))
     }, [id])
@@ -51,7 +51,7 @@ const Profile = () => {
         event.preventDefault()
 
         axios
-        .put(`https://medcab1.herokuapp.com/api/user/1`, user)
+        .put(`https://medcab1.herokuapp.com/api/user/2`, user)
         .then(res => console.log(res))
         .catch(err => console.log('PUT ERROR:', err))
     }
@@ -63,7 +63,7 @@ const Profile = () => {
         event.preventDefault()
 
         axios
-        .delete(`https://medcab1.herokuapp.com/api/user/1`)
+        .delete(`https://medcab1.herokuapp.com/api/user/2`)
         .then(res => console.log(res))
         .catch(err => console.log('PUT ERROR:', err))
     }
@@ -164,7 +164,7 @@ const Profile = () => {
 
                 <button disabled={disabled}>Submit</button>
             </form>
-            <button onClick= {handleLogOut()}>Log Out</button>
+            <button onClick= {() => handleLogOut()}>Log Out</button>
         </div>)
 }
 
