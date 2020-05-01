@@ -32,7 +32,7 @@ export default function Header() {
             </ul>
             {/* SearchBar component for the Headers */}
             <SearchBar />
-            <Link to="/">
+            <Link to="/profile">
                 <h4>Profile</h4>
             </Link>
         </FlexedDiv>

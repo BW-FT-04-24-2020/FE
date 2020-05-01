@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams, useHistory } from 'react-router-dom';
+import {axiosWithAuth} from '../utils/axiosWithAuthUser'
+import * as yup from 'yup';
 
 const signSchema = yup.object().shape({
-    name: yup.string().min(2).required('Please Enter a Name Longer Than 2 Characters'),
-    email: yup.string().required('Please Enter A Valid Email'),
-    password: yup.string().min(4).required('Please Enter A Password Of 4 Characters Or More')
+    name: yup.string().min(2,'Please Enter a Name Longer Than 2 Characters' ).required('Please Enter a Name Longer Than 2 Characters'),
+    email: yup.string().email('Please Enter A Valid Email').required('Please Enter A Valid Email'),
+    password: yup.string().min(6, 'Please Enter A Password Of 6 Characters Or More').required('Please Enter A Password Of 6 Characters Or More')
 })
 
-const Profile = () => {
+const Profile = (props) => {
+
+    
+
+    const {push} = useHistory()
+
+    //let's us grab the id
+    const { id } = useParams();
 
     //button state
     const [disabled, setDisabled]= useState(true)
@@ -26,6 +36,39 @@ const Profile = () => {
 
     })
 
+    console.log(id)
+
+    useEffect(() => {
+        axiosWithAuth()
+        .get(`/api/user/${id}`)
+        .then(res => console.log('USER GET:', res))
+        .catch(err => console.log('USER GET ERROR:',err))
+    }, [id])
+
+
+   // handles submit
+
+    const handleSubmit = event =>  { 
+        event.preventDefault()
+
+        axiosWithAuth()
+        .put(`/api/user/${id}`, user)
+        .then(res => console.log(res))
+        .catch(err => console.log('PUT ERROR:', err))
+    }
+
+
+    //Handles delete
+
+    const handleDelete = event =>{
+        event.preventDefault()
+
+        axiosWithAuth()
+        .delete(`/api/user/${id}`)
+        .then(res => console.log(res))
+        .catch(err => console.log('PUT ERROR:', err))
+    }
+
     //Handles Form Changes
     const handleChange = event => {
         event.persist()
@@ -42,7 +85,7 @@ const Profile = () => {
     //actually validates
     const validateChange = event => {
         yup.reach(signSchema, event.target.name)
-            .validate(event.target.type === event.target.value)
+            .validate(event.target.type === "checkbox" ? event.target.checked : event.target.value)
             .then(valid => {
                 
                 setError({
@@ -51,7 +94,7 @@ const Profile = () => {
                     [event.target.name]: ""
                    
                 });
-                console.log(error)
+                
             })
             .catch(err => {
                 console.log(err)
@@ -64,25 +107,30 @@ const Profile = () => {
 
     //checks validity
     useEffect(() => {
-        signSchema.isValid(newUser).then(valid => {
+        signSchema.isValid(user).then(valid => {
             setDisabled(!valid);
-            console.log(valid)
+            
         })
         
-    }, [newUser]);
+    }, [user]);
+
+    const handleLogOut = () => {
+        localStorage.removeItem('token')
+        push('/')
+    }
 
 
     return (
         <div className='edit'>
             <h2>Edit Your Account</h2>
-            <form onSubmit={handleSignUp}>
+            <form onSubmit= {handleSubmit}>
                 <label htmlFor='name' name='name' >Name*</label>
 
                 <br />
                 <input
                     type='text'
                     name='name'
-                    value={newUser.name}
+                    value={user.name}
                     onChange={handleChange}
                 />
                 <br />
@@ -95,7 +143,7 @@ const Profile = () => {
                 <input
                     type='text'
                     name='email'
-                    value={newUser.email}
+                    value={user.email}
                     onChange={handleChange}
                 />
                 <br />
@@ -108,7 +156,7 @@ const Profile = () => {
                 <input
                     type='password'
                     name='password'
-                    value={newUser.password}
+                    value={user.password}
                     onChange={handleChange}
                 />
                 <br />
@@ -117,6 +165,8 @@ const Profile = () => {
 
                 <button disabled={disabled}>Submit</button>
             </form>
+            <button onClick= {handleDelete}>Delete Profile</button>
+            <button onClick= {() => handleLogOut()}>Log Out</button>
         </div>)
 }
 
